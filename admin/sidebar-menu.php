@@ -21,16 +21,9 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>HOME</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                <a href="content-manager.php">
+                    <i class="fa fa-folder"></i> <span>Content Manager</span>
                 </a>
-                <ul class="treeview-menu">
-                    <li class="active"><a href="manage-slider.php"><i class="fa fa-circle-o"></i>Manage Slider</a></li>
-                    <li><a href="welcometext.php"><i class="fa fa-circle-o"></i>Welcome Text</a></li>
-                </ul>
             </li>
             <li class="treeview">
                 <a href="#">
