@@ -1,3 +1,22 @@
+<?php
+include '../include.php';
+
+if (isset($_POST['add-slider'])) {
+    $slider = new Slider();
+
+    $add = $slider->add($_POST, $_FILES);
+
+    if ($add) {
+        echo 'ok';
+    } else {
+        echo 'no';
+    }
+}
+
+$slider = new Slider();
+
+$images = $slider->getSlider();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,11 +25,14 @@
         <title>AdminLTE 2 | General Form Elements</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
         <link href="css/custome.css" rel="stylesheet" type="text/css"/>
+        <link href="css/custome.css" rel="stylesheet" type="text/css"/>
+        <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
+
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     </head>
@@ -43,31 +65,19 @@
                                         <div class="form-group">
                                             <label for="image" class="col-sm-2 control-label">Image</label>
                                             <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="slider-image" required="TRUE">
+                                                <input type="file" class="form-control" id="slider-image" name="image" required="TRUE">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="title" class="col-sm-2 control-label">Image Title</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="imagetitle" id="imagetitle" placeholder="Image Title" required="TRUE">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="caption" class="col-sm-2 control-label">Caption</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="caption" id="caption" placeholder="Password" required="TRUE">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="url" class="col-sm-2 control-label">URL</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="url" id="url" placeholder="URL" required="TRUE">
+                                                <input type="text" class="form-control" name="title" id="imagetitle" placeholder="Image Title" required="TRUE">
                                             </div>
                                         </div>
                                         <div class="box-footer">
                                             <div class="col-md-2"></div>
                                             <div class="col-md-8">
-                                                <button type="submit" class="btn btn-info pull-right">Add Slider</button>
+                                                <button type="submit" class="btn btn-info pull-right" name="add-slider">Add Slider</button>
                                             </div>
                                         </div>
                                     </div>
@@ -87,58 +97,26 @@
                                     <div class="panel panel-default"> 
                                         <div class="panel-body"> 
                                             <div class="row"> 
-                                                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;">
-                                                    <div class="slider-image">
-                                                        <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/slider/slide02.jpg" > 
-                                                            <img class="example-image img-responsive" src="../images/slider/093.jpg" alt=""/> 
-                                                        </a> 
-                                                    </div>  
-                                                    <div class="image-option"> 
-                                                        <p class="maxlinetitle">Hot Tours For Best Vacationssssssss</p>
-                                                        <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="slide02.jpg"></button>
-                                                        <a href="edit-slider.php"><button class="glyphicon glyphicon-pencil edit"></button></a>
-                                                        <a href="arrange-slider.php"><button class="glyphicon glyphicon-sort pictuers"></button></a>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;">
-                                                    <div class="slider-image">
-                                                        <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/slider/slide01.jpg" > 
-                                                            <img class="example-image img-responsive" src="../images/slider/polonnaruwaMedi_1.jpg" alt=""/> 
-                                                        </a> 
-                                                    </div>  
-                                                    <div class="image-option "> 
-                                                        <p class="maxlinetitle">Hot Tours For Best Vacations</p>
-                                                        <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="slide01.jpg"></button>
-                                                        <a href="edit-slider.php"><button class="glyphicon glyphicon-pencil edit"></button></a>
-                                                        <a href="arrange-slider.php"><button class="glyphicon glyphicon-sort pictuers"></button></a>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;">
-                                                    <div class="slider-image">
-                                                        <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/slider/slide03.jpg" > 
-                                                            <img class="example-image img-responsive" src="../images/slider/white-water-rafting-sri-lanka.jpg" alt=""/> 
-                                                        </a> 
-                                                    </div>  
-                                                    <div class="image-option "> 
-                                                        <p class="maxlinetitle">Hot Tours For Best Vacations</p>
-                                                        <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="slide03.jpg"></button>
-                                                        <a href="edit-slider.php"><button class="glyphicon glyphicon-pencil edit"></button></a>
-                                                        <a href="arrange-slider.php"><button class="glyphicon glyphicon-sort pictuers"></button></a>
-                                                    </div>
-                                                </div> 
-                                                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;">
-                                                    <div class="slider-image">
-                                                        <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/slider/slide03.jpg" > 
-                                                            <img class="example-image img-responsive" src="../images/slider/white-water-rafting-sri-lanka.jpg" alt=""/> 
-                                                        </a> 
-                                                    </div>  
-                                                    <div class="image-option "> 
-                                                        <p class="maxlinetitle">Hot Tours For Best Vacations</p>
-                                                        <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="slide03.jpg"></button>
-                                                        <a href="edit-slider.php"><button class="glyphicon glyphicon-pencil edit"></button></a>
-                                                        <a href="arrange-slider.php"><button class="glyphicon glyphicon-sort pictuers"></button></a>
-                                                    </div>
-                                                </div> 
+                                                <?php
+                                                foreach ($images as $image) {
+                                                    ?>
+                                                    <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;">
+
+                                                        <div class="slider-image">
+                                                            <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/slider/<?php echo $image['image_name']; ?>" > 
+                                                                <img class="example-image img-responsive" src="../images/slider/<?php echo $image['image_name']; ?>" alt=""/> 
+                                                            </a> 
+                                                        </div>  
+                                                        <div class="image-option"> 
+                                                            <p class="maxlinetitle"><?php echo $image['title'];?></p>
+                                                            <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="slide02.jpg"></button>
+                                                            <a href="edit-slider.php?id=<?php echo $image['id'];?>"><button class="glyphicon glyphicon-pencil edit"></button></a>
+                                                            <a href="arrange-slider.php"><button class="glyphicon glyphicon-sort pictuers"></button></a>
+                                                        </div>
+                                                    </div> 
+                                                    <?php
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -151,9 +129,8 @@
         </div>
         <?php include './footer.php'; ?>
 
-        <div class="control-sidebar-bg"></div>
-
         <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="js/lightbox-plus-jquery.min.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="plugins/fastclick/fastclick.js"></script>
         <script src="dist/js/app.min.js"></script>

@@ -19,3 +19,7 @@
     margin: 3px;
     cursor: move;
 }
+
+.form-control{
+    height: auto;
+}
