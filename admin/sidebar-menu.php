@@ -22,7 +22,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
                 <a href="content-manager.php">
-                    <i class="fa fa-folder"></i> <span>Content Manager-new</span>
+                    <i class="fa fa-folder"></i> <span>Content Manager</span>
                 </a>
             </li>
             <li class="treeview">
