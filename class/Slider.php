@@ -102,5 +102,16 @@ class Slider {
 
         return $result;
     }
+    
+    public function deleteById($id){
+        
+        $db = new DB();
+        
+        $query = "DELETE FROM `main-slider` WHERE `id` =  '".$id['SliderId']."'";
+        
+        $result = $db->readQuery($query);
+        
+        return $result;
+    }
 
 }
