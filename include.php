@@ -9,3 +9,4 @@ include BASE_PATH . '/class/Room.php';
 include BASE_PATH . '/class/Upload.php';
 include BASE_PATH . '/class/User.php';
 include BASE_PATH . '/class/Slider.php';
+include BASE_PATH . '/class/Introduction.php';
