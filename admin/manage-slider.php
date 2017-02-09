@@ -33,6 +33,7 @@ $images = $slider->getSlider();
         <link href="css/custome.css" rel="stylesheet" type="text/css"/>
         <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
 
+        <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     </head>
@@ -96,21 +97,20 @@ $images = $slider->getSlider();
                                 <div class="panel-content">
                                     <div class="panel panel-default"> 
                                         <div class="panel-body"> 
-                                            <div class="row"> 
+                                            <div class="row"  id="slider"> 
                                                 <?php
                                                 foreach ($images as $image) {
                                                     ?>
-                                                    <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;">
-
+                                                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;" id="slider_<?php echo $image['id']; ?>">
                                                         <div class="slider-image">
                                                             <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/slider/<?php echo $image['image_name']; ?>" > 
                                                                 <img class="example-image img-responsive" src="../images/slider/<?php echo $image['image_name']; ?>" alt=""/> 
                                                             </a> 
                                                         </div>  
                                                         <div class="image-option"> 
-                                                            <p class="maxlinetitle"><?php echo $image['title'];?></p>
-                                                            <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="slide02.jpg"></button>
-                                                            <a href="edit-slider.php?id=<?php echo $image['id'];?>"><button class="glyphicon glyphicon-pencil edit"></button></a>
+                                                            <p class="maxlinetitle"><?php echo $image['title']; ?></p>
+                                                            <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="<?php echo $image['id']; ?>"></button>
+                                                            <a href="edit-slider.php?id=<?php echo $image['id']; ?>"><button class="glyphicon glyphicon-pencil edit"></button></a>
                                                             <a href="arrange-slider.php"><button class="glyphicon glyphicon-sort pictuers"></button></a>
                                                         </div>
                                                     </div> 
@@ -129,11 +129,11 @@ $images = $slider->getSlider();
         </div>
         <?php include './footer.php'; ?>
 
-        <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
         <script src="js/lightbox-plus-jquery.min.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="plugins/fastclick/fastclick.js"></script>
         <script src="dist/js/app.min.js"></script>
         <script src="dist/js/demo.js"></script>
+        <script src="../js/ajax/slider.js" type="text/javascript"></script>
     </body>
 </html>
