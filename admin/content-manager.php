@@ -29,7 +29,16 @@
                         <div class="col-lg-3 col-xs-6">
                             <div class="small-box bg-aqua">
                                 <div class="inner">
-                                        <i class="ion ion-image fa-4x"></i>
+                                    <i class="ion ion-android-document fa-4x"></i>
+                                    <p>Main Introduction</p>
+                                </div>
+                                <a href="manage-introduction.php" class="small-box-footer">Go <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-xs-6">
+                            <div class="small-box bg-aqua">
+                                <div class="inner">
+                                    <i class="ion ion-image fa-4x"></i>
                                     <p>Manage Slider</p>
                                 </div>
                                 <a href="manage-slider.php" class="small-box-footer">Go <i class="fa fa-arrow-circle-right"></i></a>
