@@ -36,6 +36,7 @@ $image = $slider->getById($id);
         <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+        <link href="css/custome.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
