@@ -11,3 +11,4 @@ include BASE_PATH . '/class/User.php';
 include BASE_PATH . '/class/Slider.php';
 include BASE_PATH . '/class/Introduction.php';
 include BASE_PATH . '/class/AboutUs.php';
+include BASE_PATH . '/class/Facilities.php';
