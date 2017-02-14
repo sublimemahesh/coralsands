@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Coralsand/include.php</file>
+            <file>file:/C:/xampp/htdocs/Coralsand/class/ActivityPhotos.php</file>
             <file>file:/C:/xampp/htdocs/Coralsand/admin/manage-about-us.php</file>
-            <file>file:/C:/xampp/htdocs/Coralsand/class/AboutUs.php</file>
+            <file>file:/C:/xampp/htdocs/Coralsand/class/Activities.php</file>
+            <file>file:/C:/xampp/htdocs/Coralsand/admin/add-activity-photo.php</file>
         </group>
     </open-files>
 </project-private>
