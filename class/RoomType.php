@@ -29,9 +29,18 @@ class RoomType {
         $db = new DB();
 
         $this->roomType = $data['room_type'];
+        $this->roomType_g = $data['room_type_g'];
+        $this->roomType_r = $data['room_type_r'];
+        $this->roomType_c = $data['room_type_c'];
         $this->price = $data['price'];
         $this->shortDescription = $data['shortDescription'];
+        $this->shortDescription_g = $data['shortDescription_g'];
+        $this->shortDescription_r = $data['shortDescription_r'];
+        $this->shortDescription_c = $data['shortDescription_c'];
         $this->description = $data['description'];
+        $this->description_g = $data['description_g'];
+        $this->description_r = $data['description_r'];
+        $this->description_c = $data['description_c'];
         $this->numofRoom = $data['num_of_room'];
 
         $dir_dest = '../images/room-type/';
@@ -72,7 +81,7 @@ class RoomType {
             }
         }
 
-        $query = "INSERT INTO `room-type` (`room_type`,`main_photo`,`price`,`shortDescription`,`description`,`num_of_room`) VALUES('" . mysql_real_escape_string($this->roomType) . "','" . mysql_real_escape_string($imgName) . "','" . mysql_real_escape_string($this->price) . "','" . mysql_real_escape_string($this->shortDescription) . "','" . mysql_real_escape_string($this->description) . "','" . mysql_real_escape_string($this->numofRoom) . "')";
+        $query = "INSERT INTO `room-type` (`room_type`,`room_type_g`,`room_type_r`,`room_type_c`,`main_photo`,`price`,`shortDescription`,`shortDescription_g`,`shortDescription_r`,`shortDescription_c`,`description`,`description_g`,`description_r`,`description_c`,`num_of_room`) VALUES('" . mysql_real_escape_string($this->roomType) . "','" . mysql_real_escape_string($this->roomType_g) . "','" . mysql_real_escape_string($this->roomType_r) . "','" . mysql_real_escape_string($this->roomType_c) . "','" . mysql_real_escape_string($imgName) . "','" . mysql_real_escape_string($this->price) . "','" . mysql_real_escape_string($this->shortDescription) . "','" . mysql_real_escape_string($this->shortDescription_g) . "','" . mysql_real_escape_string($this->shortDescription_r) . "','" . mysql_real_escape_string($this->shortDescription_c) . "','" . mysql_real_escape_string($this->description) . "','" . mysql_real_escape_string($this->description_g) . "','" . mysql_real_escape_string($this->description_r) . "','" . mysql_real_escape_string($this->description_c) . "','" . mysql_real_escape_string($this->numofRoom) . "')";
 
         $result = $db->readQuery($query);
 
@@ -124,9 +133,18 @@ class RoomType {
         $db = new DB();
 
         $this->roomType = $data['room_type'];
+        $this->roomType_g = $data['room_type_g'];
+        $this->roomType_r = $data['room_type_r'];
+        $this->roomType_c = $data['room_type_c'];
         $this->price = $data['price'];
         $this->shortDescription = $data['shortDescription'];
+        $this->shortDescription_g = $data['shortDescription_g'];
+        $this->shortDescription_r = $data['shortDescription_r'];
+        $this->shortDescription_c = $data['shortDescription_c'];
         $this->description = $data['description'];
+        $this->description_g = $data['description_g'];
+        $this->description_r = $data['description_r'];
+        $this->description_c = $data['description_c'];
         $this->numofRoom = $data['num_of_room'];
 
         $dir_dest = '../images/room-type/';
@@ -173,9 +191,18 @@ class RoomType {
 
         $query = "UPDATE `room-type` SET "
                 . "`room_type` = '" . mysql_real_escape_string($this->roomType) . "',"
+                . "`room_type_g` = '" . mysql_real_escape_string($this->roomType_g) . "',"
+                . "`room_type_r` = '" . mysql_real_escape_string($this->roomType_r) . "',"
+                . "`room_type_c` = '" . mysql_real_escape_string($this->roomType_c) . "',"
                 . "`price` = '" . mysql_real_escape_string($this->price) . "',"
                 . " `shortDescription` = '" . mysql_real_escape_string($this->shortDescription) . "',"
+                . " `shortDescription_g` = '" . mysql_real_escape_string($this->shortDescription_g) . "',"
+                . " `shortDescription_r` = '" . mysql_real_escape_string($this->shortDescription_r) . "',"
+                . " `shortDescription_c` = '" . mysql_real_escape_string($this->shortDescription_c) . "',"
                 . "`description` = '" . mysql_real_escape_string($this->description) . "',"
+                . "`description_g` = '" . mysql_real_escape_string($this->description_g) . "',"
+                . "`description_r` = '" . mysql_real_escape_string($this->description_r) . "',"
+                . "`description_c` = '" . mysql_real_escape_string($this->description_c) . "',"
                 . " `num_of_room` = '" . mysql_real_escape_string($this->numofRoom) . "'"
                 . " WHERE `id` = '" . $id . "' ";
 
