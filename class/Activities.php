@@ -142,50 +142,9 @@ class Activities {
         return $result;
     }
 
-    public function deleteById($data, $file, $imgOld, $id) {
-
+    public function deleteById($id) {
+        
         $db = new DB();
-
-        $dir_dest = '../images/facilities/';
-        $dir_dest_thumb = '../images/facilities/thumb/';
-
-        $handle = new Upload($file['image']);
-
-        $imgName = null;
-
-        if ($handle->uploaded) {
-            $handle->image_resize = true;
-            $handle->file_new_name_body = TRUE;
-            $handle->file_overwrite = TRUE;
-            $handle->file_new_name_ext = FALSE;
-            $handle->image_ratio_crop = 'C';
-            $handle->file_new_name_body = $imgOld;
-            $handle->image_x = 900;
-            $handle->image_y = 500;
-
-            $handle->Process($dir_dest);
-
-            if ($handle->processed) {
-                $info = getimagesize($handle->file_dst_pathname);
-                $imgName = $handle->file_dst_name;
-            }
-
-            $handle->image_resize = true;
-            $handle->file_new_name_body = TRUE;
-            $handle->file_overwrite = TRUE;
-            $handle->file_new_name_ext = FALSE;
-            $handle->image_ratio_crop = 'C';
-            $handle->file_new_name_body = $imgOld;
-            $handle->image_x = 300;
-            $handle->image_y = 200;
-
-            $handle->Process($dir_dest_thumb);
-
-            if ($handle->processed) {
-                $info = getimagesize($handle->file_dst_pathname);
-                $imgName = $handle->file_dst_name;
-            }
-        }
 
         $query = "DELETE FROM `activities` WHERE `id` = '" . $id['Id'] . "' ";
 
