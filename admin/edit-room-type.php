@@ -18,7 +18,6 @@ if (isset($_POST['send'])) {
 }
 
 $roomType = RoomType::getAllRoomTypeById($id);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +37,7 @@ $roomType = RoomType::getAllRoomTypeById($id);
         <script>
 
             tinymce.init({
-                selector: "#longText",
+                selector: ".longText",
                 // ===========================================
                 // INCLUDE THE PLUGIN
                 // ===========================================
@@ -80,19 +79,23 @@ $roomType = RoomType::getAllRoomTypeById($id);
                         <li class="active">Edit Room Type</li>
                     </ol>
                 </section>
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="box box-info">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title"></h3>
-                                </div>
-                                <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+
+                <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                    <div class="col-md-12 content">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#eng" data-toggle="tab">English</a></li>
+                                <li><a href="#ger" data-toggle="tab">Germen</a></li>
+                                <li><a href="#rus" data-toggle="tab">Russia</a></li>
+                                <li><a href="#chi" data-toggle="tab">China</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="eng">
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="room_type" class="col-sm-2 control-label">Room Name</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="room_type" id="room_type" value="<?php echo $roomType['room_type'];?>">
+                                                <input type="text" class="form-control" name="room_type" id="room_type" placeholder="Room Type" required="TRUE" value="<?php echo $roomType['room_type']; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -104,39 +107,105 @@ $roomType = RoomType::getAllRoomTypeById($id);
                                         <div class="form-group">
                                             <label for="price" class="col-sm-2 control-label">Price</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="price" id="price" value="<?php echo $roomType['price']; ?>">
+                                                <input type="text" class="form-control" name="price" id="price" placeholder="Price" required="TRUE" value="<?php echo $roomType['price']; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="num_of_room" class="col-sm-2 control-label">Number Of Room</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="num_of_room" id="num_of_room" value="<?php echo $roomType['num_of_room']; ?>">
+                                                <input type="text" class="form-control" name="num_of_room" id="num_of_room" placeholder="Number Of Room" required="TRUE" value="<?php echo $roomType['num_of_room']; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="shortDescription" class="col-sm-2 control-label">Short Description</label>
+                                            <label for="shortDecription" class="col-sm-2 control-label">Short Description</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="shortDescription" id="shortDescription" value="<?php echo $roomType['shortDescription']; ?>">
+                                                <input type="text" class="form-control" name="shortDescription" id="shortDecription" placeholder="Short Decription" required="TRUE" value="<?php echo $roomType['shortDescription']; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="description" class="col-sm-2 control-label">Description</label>
                                             <div class="col-sm-8">
-                                                <textarea id="longText" name="description" class="form-control" rows="5"><?php echo $roomType['description']; ?></textarea> 
-                                            </div>
-                                        </div>
-                                        <div class="box-footer">
-                                            <div class="col-md-2"></div>
-                                            <div class="col-md-8">
-                                                <button type="submit" name="send" id="send" class="btn btn-info pull-right">Update</button>
+                                                <textarea name="description" class="form-control longText" rows="5"><?php echo $roomType['description']; ?> </textarea> 
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="tab-pane" id="ger">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="room_type_g" class="col-sm-2 control-label">Room Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="room_type_g" id="room_type_g" placeholder="Room Type" required="TRUE" value="<?php echo $roomType['room_type_g']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="shortDecription_g" class="col-sm-2 control-label">Short Description</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="shortDescription_g" id="shortDecription_g" placeholder="Short Decription" required="TRUE" value="<?php echo $roomType['shortDescription_g']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description_g" class="col-sm-2 control-label">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="description_g" class="form-control longText" rows="5"> <?php echo $roomType['description_g']; ?></textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="rus">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="room_type_r" class="col-sm-2 control-label">Room Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="room_type_r" id="room_type_r" placeholder="Room Type" required="TRUE" value="<?php echo $roomType['room_type_r']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="shortDecription_r" class="col-sm-2 control-label">Short Description</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="shortDescription_r" id="shortDecription_r" placeholder="Short Decription" required="TRUE" value="<?php echo $roomType['shortDescription_r']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description_r" class="col-sm-2 control-label">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="description_r" class="form-control longText" rows="5"><?php echo $roomType['description_r']; ?> </textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="chi">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="room_type_c" class="col-sm-2 control-label">Room Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="room_type_c" id="room_type_c" placeholder="Room Type" required="TRUE" value="<?php echo $roomType['room_type_c']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="shortDecription_c" class="col-sm-2 control-label">Short Description</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="shortDescription_c" id="shortDecription_c" placeholder="Short Decription" required="TRUE" value="<?php echo $roomType['shortDescription_c']; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description_c" class="col-sm-2 control-label">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="description_c" class="form-control longText" rows="5"> <?php echo $roomType['description_c']; ?></textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8">
+                                        <button type="submit" name="send" id="send" class="btn btn-info pull-right">Update</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </form> 
             </div>
         </div>
 
