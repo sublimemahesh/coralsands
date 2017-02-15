@@ -22,7 +22,7 @@ $images = $slider->getSlider();
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | General Form Elements</title>
+        <title>Coral Sand Hotel - Admin Panel</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -49,8 +49,7 @@ $images = $slider->getSlider();
                         Manage Slider 
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Manage Slider</a></li>
+                        <li><a href="content-manager.php"><i class="fa fa-dashboard"></i> Home</a></li>
                         <li class="active">Add New Slider</li>
                     </ol>
                 </section>
@@ -101,7 +100,7 @@ $images = $slider->getSlider();
                                                 <?php
                                                 foreach ($images as $image) {
                                                     ?>
-                                                <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;" id="slider_<?php echo $image['id']; ?>">
+                                                    <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;" id="slider_<?php echo $image['id']; ?>">
                                                         <div class="slider-image">
                                                             <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/slider/<?php echo $image['image_name']; ?>" > 
                                                                 <img class="example-image img-responsive" src="../images/slider/<?php echo $image['image_name']; ?>" alt=""/> 
@@ -109,9 +108,15 @@ $images = $slider->getSlider();
                                                         </div>  
                                                         <div class="image-option"> 
                                                             <p class="maxlinetitle"><?php echo $image['title']; ?></p>
-                                                            <button class="glyphicon glyphicon-trash delete text-danger delete-slider-image" id="<?php echo $image['id']; ?>"></button>
-                                                            <a href="edit-slider.php?id=<?php echo $image['id']; ?>"><button class="glyphicon glyphicon-pencil edit"></button></a>
-                                                            <a href="arrange-slider.php"><button class="glyphicon glyphicon-sort pictuers"></button></a>
+                                                            <a href="edit-slider.php?id=<?php echo $image['id']; ?>" class="btn btn-primary">
+                                                                <span class="glyphicon glyphicon-pencil"></span>
+                                                            </a>
+                                                            <a href="arrange-slider.php?id=<?php echo $image['id']; ?>" class="btn btn-primary">
+                                                                <span class="glyphicon glyphicon-sort"></span>
+                                                            </a> 
+                                                            <a id="<?php echo $image['id']; ?>" class="btn btn-danger delete-slider-image"/>
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                            </a>
                                                         </div>
                                                     </div> 
                                                     <?php
