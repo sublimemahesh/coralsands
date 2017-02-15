@@ -24,7 +24,7 @@ $getactivities = $activities->getById($id);
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | General Form Elements</title>
+        <title>Coral Sand Hotel - Admin Panel</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -75,11 +75,12 @@ $getactivities = $activities->getById($id);
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Manage About Us 
+                        Manage Activities 
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active"><a href="#">Manage Activities</a></li>
+                        <li><a href="content-manager.php"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active"><a href="manage-activities.php">Manage Activities</a></li>
+                        <li><a href="#">Edit Activities</a></li>
                     </ol>
                 </section>
 
