@@ -33,7 +33,7 @@ $details = RoomType::getAllRoomType();
         <script>
 
             tinymce.init({
-                selector: "#longText",
+                selector: ".longText",
                 // ===========================================
                 // INCLUDE THE PLUGIN
                 // ===========================================
@@ -76,15 +76,17 @@ $details = RoomType::getAllRoomType();
                     </ol>
                 </section>
 
-                <section class="content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- Horizontal Form -->
-                            <div class="box box-info">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title"></h3>
-                                </div>
-                                <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                    <div class="col-md-12 content">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#eng" data-toggle="tab">English</a></li>
+                                <li><a href="#ger" data-toggle="tab">Germen</a></li>
+                                <li><a href="#rus" data-toggle="tab">Russia</a></li>
+                                <li><a href="#chi" data-toggle="tab">China</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="eng">
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="room_type" class="col-sm-2 control-label">Room Name</label>
@@ -111,7 +113,7 @@ $details = RoomType::getAllRoomType();
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="shortDecription" class="col-sm-2 control-label">Short Decription</label>
+                                            <label for="shortDecription" class="col-sm-2 control-label">Short Description</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control" name="shortDescription" id="shortDecription" placeholder="Short Decription" required="TRUE">
                                             </div>
@@ -119,21 +121,88 @@ $details = RoomType::getAllRoomType();
                                         <div class="form-group">
                                             <label for="description" class="col-sm-2 control-label">Description</label>
                                             <div class="col-sm-8">
-                                                <textarea id="longText" name="description" class="form-control" rows="5"> </textarea> 
-                                            </div>
-                                        </div>
-                                        <div class="box-footer">
-                                            <div class="col-md-2"></div>
-                                            <div class="col-md-8">
-                                                <button type="submit" name="send" id="send" class="btn btn-info pull-right">Add Room</button>
+                                                <textarea name="description" class="form-control longText" rows="5"> </textarea> 
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="tab-pane" id="ger">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="room_type_g" class="col-sm-2 control-label">Room Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="room_type_g" id="room_type_g" placeholder="Room Type" required="TRUE">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="shortDecription_g" class="col-sm-2 control-label">Short Description</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="shortDescription_g" id="shortDecription_g" placeholder="Short Decription" required="TRUE">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description_g" class="col-sm-2 control-label">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="description_g" class="form-control longText" rows="5"> </textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="rus">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="room_type_r" class="col-sm-2 control-label">Room Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="room_type_r" id="room_type_r" placeholder="Room Type" required="TRUE">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="shortDecription_r" class="col-sm-2 control-label">Short Description</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="shortDescription_r" id="shortDecription_r" placeholder="Short Decription" required="TRUE">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description_r" class="col-sm-2 control-label">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="description_r" class="form-control longText" rows="5"> </textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="chi">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="room_type_c" class="col-sm-2 control-label">Room Name</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="room_type_c" id="room_type_c" placeholder="Room Type" required="TRUE">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="shortDecription_c" class="col-sm-2 control-label">Short Description</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="shortDescription_c" id="shortDecription_c" placeholder="Short Decription" required="TRUE">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description_c" class="col-sm-2 control-label">Description</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="description_c" class="form-control longText" rows="5"> </textarea> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8">
+                                        <button type="submit" name="send" id="send" class="btn btn-info pull-right">Add Room</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </form> 
+
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
