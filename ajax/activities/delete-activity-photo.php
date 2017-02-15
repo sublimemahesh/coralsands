@@ -5,9 +5,9 @@ include '../../include.php';
 if (isset($_POST['ActivityPhoto'])) {
 
     $activityPhoto = new ActivityPhotos();
-    
+
     $image = $activityPhoto->getById($_POST['ID']);
-    
+
     $delete = $activityPhoto->deleteById($_POST);
 
     if ($delete) {
