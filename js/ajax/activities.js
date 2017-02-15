@@ -12,7 +12,7 @@ $(document).ready(function () {
                     Activities: true,
                     Id: id,
                 },
-                dataType: "JASON",
+                dataType: "JSON",
                 success: function (data) {
                     if (data.status) {
                         id.fadeOut().remove();
