@@ -20,7 +20,7 @@ $images = $slider->getSlider();
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | General Form Elements</title>
+        <title>Coral Sand Hotel - Admin Panel</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -47,8 +47,8 @@ $images = $slider->getSlider();
                         Manage Slider 
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Manage Slider</a></li>
+                        <li><a href="content-manager.php"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="manage-slider.php">Manage Slider</a></li>
                         <li class="active">Arrange Slider</li>
                     </ol>
                 </section>

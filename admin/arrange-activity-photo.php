@@ -48,8 +48,7 @@ $actimages = $actPhoto->getAllByActivityId($activityId);
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                        Manage Activities
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="./"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -69,7 +68,7 @@ $actimages = $actPhoto->getAllByActivityId($activityId);
                                         <div class="col-md-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    Arrange Slider Image
+                                                    Arrange Activity Photos
                                                 </div>
                                                 <div class="panel-body">
                                                     <form method="post">

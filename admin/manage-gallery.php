@@ -1,21 +1,19 @@
 <?php
 include '../include.php';
 
-$id = $_GET['id'];
+if (isset($_POST['send'])) {
 
-if (isset($_POST['add'])) {
-    $actPhoto = new ActivityPhotos();
+    $gallery = new Gallery();
 
-    $add = $actPhoto->add($_POST, $_FILES);
+    $add = $gallery->add($_POST, $_FILES);
 }
 
-$activities =  new ActivityPhotos();
+$gallery = new Gallery();
 
-$activityPhotos = $activities->getAllByActivityId($id);
-
+$images = $gallery->getAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,8 +28,6 @@ $activityPhotos = $activities->getAllByActivityId($id);
         <link href="css/lightbox.min.css" rel="stylesheet" type="text/css"/>
 
         <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -43,46 +39,50 @@ $activityPhotos = $activities->getAllByActivityId($id);
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Manage Activities 
+                        Manage Gallery
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                        <li class="active"><a href="manage-activities.php">Manage Activities</a></li>
-                        <li><a href="add-activity-photo.php">Add Activity photo</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="#">Manage Gallery</a></li>
+                        <li class="active">Add Gallery Photo</li>
                     </ol>
                 </section>
 
-                <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                    <div class="col-md-12 content">
-                        <div class="nav-tabs-custom">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="eng">
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Horizontal Form -->
+                            <div class="box box-info">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title"></h3>
+                                </div>
+                                <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data" id="photo">
                                     <div class="box-body">
+                                        <input type="hidden" class="form-control" name="room_type" id="room_type" value="<?php echo $id; ?>" >
                                         <div class="form-group">
-                                            <label for="image" class="col-sm-2 control-label">Image</label>
+                                            <label for="image" class="col-sm-2 control-label">Photo</label>
                                             <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="slider-image" name="image">
+                                                <input type="file" class="form-control" name="image" id="image" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="introduction" class="col-sm-2 control-label">Title</label>
+                                            <label for="title" class="col-sm-2 control-label">Title</label>
                                             <div class="col-sm-8">
-                                                <input type="text" name="title" id="title" class="form-control" placeholder="Enter Image Title"/>
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="Caption" required>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="activity_id" id="actity_id" value="<?php echo $id; ?>"/>
+                                        <div class="box-footer">
+                                            <div class="col-md-2"></div>
+                                            <div class="col-md-8">
+                                                <button type="submit" name="send" id="send" class="btn btn-info pull-right">Add Photo</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="box-footer">
-                                    <div class="col-md-2"></div>
-                                    <div class="col-md-8">
-                                        <button type="submit" class="btn btn-info pull-right" name="add">Add</button>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </form> 
+                </section>
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
@@ -94,27 +94,27 @@ $activityPhotos = $activities->getAllByActivityId($id);
                                     <div class="panel panel-default"> 
                                         <div class="panel-body"> 
                                             <?php
-                                            if ($activityPhotos) {
+                                            if ($images) {
                                                 ?>
-                                                <div class="row" id="activitiy-photo"> 
-                                                    <?php foreach ($activityPhotos as $activityPhoto) {
+                                                <div class="row" id="gallery"> 
+                                                    <?php foreach ($images as $image) {
                                                         ?>
-                                                        <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;" id="actpho_<?php echo $activityPhoto['id']; ?>">
+                                                        <div class="col-md-4 col-sm-6 col-xs-12" style="padding-bottom: 20px;" id="gal_<?php echo $image['id']; ?>">
                                                             <div class="slider-image">
-                                                                <a class="info" class="example-image-link" data-lightbox="example-set"  href="../images/activities/photos/<?php echo $activityPhoto['image_name'];?>"> 
-                                                                    <img class="example-image img-responsive" src="../images/activities/photos/thumb/<?php echo $activityPhoto['image_name']; ?>" alt=""/> 
+                                                                <a class="example-image-link info" data-lightbox="example-set"  href="../images/gallery/<?php echo $image['image_name']; ?>"> 
+                                                                    <img class="example-image img-responsive" src="../images/gallery/thumb/<?php echo $image['image_name']; ?>" alt=""/> 
                                                                 </a> 
                                                             </div>  
                                                             <div class="image-option"> 
-                                                                <p><?php echo $activityPhoto['title']; ?></p>
-                                                                <a href="edit-activity-photo.php?id=<?php echo $activityPhoto['id']; ?>" class="btn btn-primary">
-                                                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                                <p class="maxlinetitle"><?php echo $image['title']; ?></p>
+                                                                <a href="edit-gallery.php?id=<?php echo $image['id']; ?>" class="btn btn-primary">
+                                                                    <span class="glyphicon glyphicon-pencil"></span>
                                                                 </a>
-                                                                <a href="arrange-activity-photo.php?id=<?php echo $id; ?>" class="btn btn-primary">
-                                                                    <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+                                                                <a href="arrange-gallery.php?id=<?php echo $image['id']; ?>" class="btn btn-primary">
+                                                                    <span class="glyphicon glyphicon-sort"></span>
                                                                 </a>
-                                                                <a id="<?php echo $activityPhoto['id']; ?>" title="Delete This Facilities" class="btn btn-danger delete-activity-photo">
-                                                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                                <a id="<?php echo $image['id']; ?>" class="btn btn-danger delete-gallery"/>
+                                                                <span class="glyphicon glyphicon-trash"></span>
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -137,9 +137,11 @@ $activityPhotos = $activities->getAllByActivityId($id);
             </div>
         </div>
         <?php include './footer.php'; ?>
+
+        <div class="control-sidebar-bg"></div>
         
-        <script src="../js/ajax/activity-photo.js" type="text/javascript"></script>
         <script src="js/lightbox-plus-jquery.min.js" type="text/javascript"></script>
+        <script src="../js/ajax/gallery.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="plugins/fastclick/fastclick.js"></script>
         <script src="dist/js/app.min.js"></script>

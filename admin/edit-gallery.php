@@ -3,25 +3,20 @@ include '../include.php';
 
 $id = $_GET['id'];
 
-$slider = new Slider();
+$gallery = new Gallery();
 
-$image = $slider->getById($id);
+$images = $gallery->getById($id);
 
-$imgOld = $image['image_name'];
+$imgOld = $images['image_name'];
 
-if(isset($_POST['edit-slider'])){
-    $slider = new Slider();
-    
-    $edit = $slider->editById($id, $_POST, $imgOld, $_FILES);
-    
-    if($edit) {
-        echo 'ok';
-    }  else {
-        echo 'no';
-    }
+if (isset($_POST['edit'])) {
+
+    $gallery = new Gallery();
+
+    $add = $gallery->editById($_POST, $_FILES, $imgOld, $id);
 }
 
-$image = $slider->getById($id);
+$detail = $gallery->getById($id);
 
 ?>
 <!DOCTYPE html>
@@ -37,6 +32,7 @@ $image = $slider->getById($id);
         <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
         <link href="css/custome.css" rel="stylesheet" type="text/css"/>
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -47,40 +43,41 @@ $image = $slider->getById($id);
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Manage Slider 
+                        Manage Gallery
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="content-manager.php"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="manage-slider.php">Manage Slider</a></li>
-                        <li class="active">Edit Slider</li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="manage-gallery.php">Manage Gallery</a></li>
+                        <li class="active">Add Gallery Photo</li>
                     </ol>
                 </section>
 
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
+                            <!-- Horizontal Form -->
                             <div class="box box-info">
                                 <div class="box-header with-border">
                                     <h3 class="box-title"></h3>
                                 </div>
-                                <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                                <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data" id="photo">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="image" class="col-sm-2 control-label">Image</label>
+                                            <label for="image" class="col-sm-2 control-label">Photo</label>
                                             <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="slider-image" name="image">
+                                                <input type="file" class="form-control" name="image" id="image" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="title" class="col-sm-2 control-label">Image Title</label>
+                                            <label for="title" class="col-sm-2 control-label">Title</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="title" id="title" value="<?php echo $image['title']; ?>">
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="Caption" value="<?php echo $detail['title']; ?>">
                                             </div>
                                         </div>
                                         <div class="box-footer">
                                             <div class="col-md-2"></div>
                                             <div class="col-md-8">
-                                                <button type="submit" class="btn btn-info pull-right" name="edit-slider">Update Slider</button>
+                                                <button type="submit" name="edit" id="edit" class="btn btn-info pull-right">Update</button>
                                             </div>
                                         </div>
                                     </div>

@@ -14,3 +14,4 @@ include BASE_PATH . '/class/AboutUs.php';
 include BASE_PATH . '/class/Facilities.php';
 include BASE_PATH . '/class/Activities.php';
 include BASE_PATH . '/class/ActivityPhotos.php';
+include BASE_PATH . '/class/Gallery.php';

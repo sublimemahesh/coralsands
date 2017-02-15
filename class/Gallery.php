@@ -1,13 +1,13 @@
 <?php
 
-class Activities {
+class Gallery {
 
     public function add($data, $file) {
 
         $db = new DB();
 
-        $dir_dest = '../images/activities/';
-        $dir_dest_thumb = '../images/activities/thumb/';
+        $dir_dest = '../images/gallery/';
+        $dir_dest_thumb = '../images/gallery/thumb/';
 
         $handle = new Upload($file['image']);
 
@@ -40,7 +40,7 @@ class Activities {
             }
         }
 
-        $query = "INSERT INTO `activities` (`image_name`,`title`,`title_g`,`title_r`,`title_c`,`shortDescription`,`shortDescription_g`,`shortDescription_r`,`shortDescription_c`,`description`,`description_g`,`description_r`,`description_c`) VALUES ('" . mysql_real_escape_string($imgName) . "','" . mysql_real_escape_string($_POST['title']) . "','" . mysql_real_escape_string($_POST['title_g']) . "','" . mysql_real_escape_string($_POST['title_r']) . "','" . mysql_real_escape_string($_POST['title_c']) . "','" . mysql_real_escape_string($_POST['shortDescription']) . "','" . mysql_real_escape_string($_POST['shortDescription_g']) . "','" . mysql_real_escape_string($_POST['shortDescription_r']) . "','" . mysql_real_escape_string($_POST['shortDescription_c']) . "','" . mysql_real_escape_string($_POST['description']) . "','" . mysql_real_escape_string($_POST['description_g']) . "','" . mysql_real_escape_string($_POST['description_r']) . "','" . mysql_real_escape_string($_POST['description_c']) . "')";
+        $query = "INSERT INTO `gallery` (`image_name`,`title`) VALUES('" . mysql_real_escape_string($imgName) . "', '" . mysql_real_escape_string($_POST['title']) . "')";
 
         $result = $db->readQuery($query);
 
@@ -51,7 +51,7 @@ class Activities {
 
         $db = new DB();
 
-        $query = "SELECT * FROM `activities` ORDER BY sort ASC";
+        $query = "SELECT * FROM `gallery` ORDER BY sort ASC ";
 
         $result = $db->readQuery($query);
 
@@ -63,26 +63,27 @@ class Activities {
 
         return $array_res;
     }
-
-    public function getById($id) {
-
+    
+    public function getById($id){
+        
         $db = new DB();
-
-        $query = "SELECT * FROM `activities` WHERE `id` = '" . $id . "' ";
-
+        
+        $query = "SELECT * FROM `gallery` WHERE `id` = '".$id."' ";
+        
         $result = $db->readQuery($query);
-
+        
         $row = mysql_fetch_array($result);
-
+        
         return $row;
+        
     }
 
     public function editById($data, $file, $imgOld, $id) {
 
         $db = new DB();
 
-        $dir_dest = '../images/activities/';
-        $dir_dest_thumb = '../images/activities/thumb/';
+        $dir_dest = '../images/gallery/';
+        $dir_dest_thumb = '../images/gallery/thumb/';
 
         $handle = new Upload($file['image']);
 
@@ -122,34 +123,21 @@ class Activities {
             }
         }
 
-        $query = "UPDATE `activities` SET "
-                . "`title` = '" . mysql_real_escape_string($_POST['title']) . "',"
-                . "`title_g` = '" . mysql_real_escape_string($_POST['title_g']) . "',"
-                . "`title_r` = '" . mysql_real_escape_string($_POST['title_r']) . "',"
-                . "`title_c` = '" . mysql_real_escape_string($_POST['title_c']) . "',"
-                . "`shortDescription` = '" . mysql_real_escape_string($_POST['shortDescription']) . "',"
-                . "`shortDescription_g` = '" . mysql_real_escape_string($_POST['shortDescription_g']) . "',"
-                . "`shortDescription_r` = '" . mysql_real_escape_string($_POST['shortDescription_r']) . "',"
-                . "`shortDescription_c` = '" . mysql_real_escape_string($_POST['shortDescription_c']) . "',"
-                . "`description` = '" . mysql_real_escape_string($_POST['description']) . "',"
-                . "`description_g` = '" . mysql_real_escape_string($_POST['description_g']) . "',"
-                . "`description_r` = '" . mysql_real_escape_string($_POST['description_r']) . "',"
-                . "`description_c` = '" . mysql_real_escape_string($_POST['description_c']) . "'"
-                . "WHERE `id` = '" . $id . "'";
+        $query = "UPDATE `gallery` SET `title` = '" . mysql_real_escape_string($_POST['title']) . "' ";
 
         $result = $db->readQuery($query);
 
         return $result;
     }
-
-    public function deleteById($id) {
+    
+    public function deleteById($id){
         
         $db = new DB();
-
-        $query = "DELETE FROM `activities` WHERE `id` = '" . $id['Id'] . "' ";
-
+        
+        $query = "DELETE FROM `gallery` WHERE `id` = '".$id['Id']."' ";
+        
         $result = $db->readQuery($query);
-
+        
         return $result;
     }
 

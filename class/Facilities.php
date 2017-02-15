@@ -40,7 +40,7 @@ class Facilities {
             }
         }
 
-        $query = "INSERT INTO `facilities` (`image_name`,`description`,`description_g`,`description_r`,`description_c`) VALUES('" . mysql_real_escape_string($imgName) . "', '" . mysql_real_escape_string($_POST['description']) . "','" . mysql_real_escape_string($_POST['description_g']) . "','" . mysql_real_escape_string($_POST['description_r']) . "','" . mysql_real_escape_string($_POST['description_c']) . "')";
+        $query = "INSERT INTO `facilities` (`image_name`,`title`,`title_g`,`title_r`,`title_c`,`description`,`description_g`,`description_r`,`description_c`) VALUES('" . mysql_real_escape_string($imgName) . "', '" . mysql_real_escape_string($_POST['title']) . "', '" . mysql_real_escape_string($_POST['title_g']) . "', '" . mysql_real_escape_string($_POST['title_r']) . "', '" . mysql_real_escape_string($_POST['title_c']) . "', '" . mysql_real_escape_string($_POST['description']) . "','" . mysql_real_escape_string($_POST['description_g']) . "','" . mysql_real_escape_string($_POST['description_r']) . "','" . mysql_real_escape_string($_POST['description_c']) . "')";
 
         $result = $db->readQuery($query);
 

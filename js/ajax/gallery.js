@@ -1,16 +1,16 @@
 $(document).ready(function () {
-    $("#activities").on('click', '.delete-activities', function () {
-
+    $("#gallery").on('click', '.delete-gallery', function () {
         var r = confirm("Are you really want delete this activities?....");
+
         if (r) {
             var id = this.id;
 
             $.ajax({
-                url: "../ajax/activities/delete-activities.php",
+                url: "../ajax/gallery/delete-gallery.php",
                 type: "POST",
                 data: {
-                    Activities: true,
-                    Id: id,
+                    Gallery: true,
+                    Id: id
                 },
                 dataType: "JSON",
                 success: function (data) {
@@ -27,5 +27,5 @@ $(document).ready(function () {
 });
 
 function RemoveRow(id) {
-    $('#acti_' + id).remove();
+    $('#gal_' + id).remove();
 }

@@ -10,21 +10,20 @@ $activityPhoto = $actPhoto->getById($id);
 $imgOld = $activityPhoto['image_name'];
 
 if (isset($_POST['edit'])) {
-    
+
     $actPhoto = new ActivityPhotos();
 
     $edit = $actPhoto->editById($_POST, $_FILES, $imgOld, $id);
 }
 
 $activityPhotos = $actPhoto->getById($id);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | General Form Elements</title>
+        <title>Coral Sand Hotel - Admin Panel</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -50,9 +49,9 @@ $activityPhotos = $actPhoto->getById($id);
                         Manage Activities 
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="content-manager.php"><i class="fa fa-home"></i> Home</a></li>
                         <li class="active"><a href="manage-activities.php">Manage Activities</a></li>
-                        <li><a href="add-activity-photo.php">Add Activity photo</a></li>
+                        <li><a href="edit-activity-photo.php">Edit Activity Photo</a></li>
                     </ol>
                 </section>
 

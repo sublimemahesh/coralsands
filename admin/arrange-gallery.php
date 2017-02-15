@@ -5,15 +5,16 @@ if (isset($_POST['arrange'])) {
 
     foreach ($_POST['sort'] as $key => $id) {
         $key = $key + 1;
-        $sql = "UPDATE `activities` SET `sort` = '" . $key . "'  WHERE id = '" . $id . "'";
+        $sql = "UPDATE `gallery` SET `sort` = '" . $key . "'  WHERE id = '" . $id . "'";
         $db = new DB();
         $db->readQuery($sql);
     }
 }
 
-$activities = new Activities();
+$gallery = new Gallery();
 
-$actimages = $activities->getAll();
+$images = $gallery->getAll();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,12 +47,13 @@ $actimages = $activities->getAll();
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Manage Activities
+                        Dashboard
+                        <small>Control panel</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="./"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="manage-activities.php"> Manage Activities</a></li>
-                        <li class="active"><a href="#">Arrange Activities</a></li>
+                        <li><a href="manage-gallery.php"> Manage Gallery</a></li>
+                        <li class="active"><a href="#">Arrange Gallery</a></li>
                     </ol>
                 </section>
                 <section class="content connectedSortable">
@@ -72,17 +74,17 @@ $actimages = $activities->getAll();
                                                     <form method="post">
                                                         <div class="panel-body">
                                                             <div class="row">
-                                                                <?php if ($actimages) {
+                                                                <?php if ($images) {
                                                                     ?>
                                                                     <div class="col-sm-12">
                                                                         <ul id="sortable">
                                                                             <?php
-                                                                            foreach ($actimages as $key => $actimage) {
+                                                                            foreach ($images as $key => $image) {
                                                                                 ?>
                                                                                 <li class="ui-state-default">
                                                                                     <span class="number-class">(<?php echo $key + 1; ?>)</span>
-                                                                                    <img width="300px" height="130" class="example-image img-responsive" src="../images/activities/thumb/<?php echo $actimage["image_name"]; ?>" alt=""/>
-                                                                                    <input type="hidden" name="sort[]"  value="<?php echo $actimage["id"]; ?>" class="sort-input"/>
+                                                                                    <img width="300px" height="130" class="example-image img-responsive" src="../images/gallery/thumb/<?php echo $image['image_name'];?>" alt=""/>
+                                                                                    <input type="hidden" name="sort[]"  value="<?php echo $image["id"]; ?>" class="sort-input"/>
                                                                                 </li>
                                                                                 <?php
                                                                             }

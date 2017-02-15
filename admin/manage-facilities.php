@@ -8,13 +8,14 @@ if (isset($_POST['add'])) {
 }
 $faci = new Facilities();
 $details = $faci->getFacilities();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | General Form Elements</title>
+        <title>Coral Sand Hotel - Admin Panel</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -68,8 +69,8 @@ $details = $faci->getFacilities();
                         Manage Facilities 
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                        <li class="active"><a href="#">Manage Facilities</a></li>
+                        <li><a href="content-manager.php"><i class="fa fa-home"></i> Home</a></li>
+                        <li class="active"><a href="#">Add Facilities</a></li>
                     </ol>
                 </section>
 
@@ -88,19 +89,19 @@ $details = $faci->getFacilities();
                                         <div class="form-group">
                                             <label for="image" class="col-sm-2 control-label">Image</label>
                                             <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="slider-image" name="image" required="TRUE">
+                                                <input type="file" class="form-control" id="slider-image" name="image">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="title" class="col-sm-2 control-label">Title</label>
                                             <div class="col-sm-8">
-                                                <input type="text" name="title" id="title" class="form-control" required="TRUE" placeholder="Enter Title">
+                                                <input type="text" name="title" id="title" class="form-control" placeholder="Enter Title">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="introduction" class="col-sm-2 control-label">Description</label>
                                             <div class="col-sm-8">
-                                                <textarea id="longText" name="description" class="form-control longText" style="" rows="5"></textarea> 
+                                                <textarea id="longText" name="description" class="form-control longText" rows="5"></textarea> 
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +111,7 @@ $details = $faci->getFacilities();
                                         <div class="form-group">
                                             <label for="title_g" class="col-sm-2 control-label">Title</label>
                                             <div class="col-sm-8">
-                                                <input type="text" name="title_g" id="title_g" class="form-control" required="TRUE" placeholder="Enter Title">
+                                                <input type="text" name="title_g" id="title_g" class="form-control" placeholder="Enter Title">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -127,7 +128,7 @@ $details = $faci->getFacilities();
                                             <div class="form-group">
                                                 <label for="title_r" class="col-sm-2 control-label">Title</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" name="title_r" id="title_r" class="form-control" required="TRUE" placeholder="Enter Title">
+                                                    <input type="text" name="title_r" id="title_r" class="form-control" placeholder="Enter Title">
                                                 </div>
                                             </div>
                                             <label for="description_r" class="col-sm-2 control-label">Description</label>
@@ -142,7 +143,7 @@ $details = $faci->getFacilities();
                                         <div class="form-group">
                                             <label for="title_c" class="col-sm-2 control-label">Title</label>
                                             <div class="col-sm-8">
-                                                <input type="text" name="title_c" id="title_c" class="form-control" required="TRUE" placeholder="Enter Title">
+                                                <input type="text" name="title_c" id="title_c" class="form-control" placeholder="Enter Title">
                                             </div>
                                         </div>
                                         <div class="form-group">
