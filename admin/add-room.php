@@ -30,12 +30,12 @@ $rooms = Room::getAllRoomByRoomTypeId($id);
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Manage Room 
+                        Manage Rooms 
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Manage Room Type</a></li>
-                        <li class="active">Add New Room Type</li>
+                        <li><a href="./"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="add-room-type.php">Manage Room Type</a></li>
+                        <li class="active">Add Room Number</li>
                     </ol>
                 </section>
 
