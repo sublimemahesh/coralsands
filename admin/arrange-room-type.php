@@ -44,12 +44,12 @@ $roomTypes = RoomType::getAllRoomType();
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                        Manage Rooms
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Dashboard</li>
+                        <li><a href="./"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="add-room-type.php"></i> Manage Room Type</a></li>
+                        <li class="active">Arrange Room Type</li>
                     </ol>
                 </section>
                 <section class="content connectedSortable">
