@@ -27,8 +27,8 @@ $roomType = RoomType::getAllRoomTypeById($id);
         <title>Coral Sand Hotel - Admin Panel</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
         <link href="css/custome.css" rel="stylesheet" type="text/css"/>
@@ -71,11 +71,11 @@ $roomType = RoomType::getAllRoomTypeById($id);
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                        Manage Room Type
+                        Manage Rooms
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Manage Room Type</a></li>
+                        <li><a href="./"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="add-room-type.php">Manage Room Type</a></li>
                         <li class="active">Edit Room Type</li>
                     </ol>
                 </section>
